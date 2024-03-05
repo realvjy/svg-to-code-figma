@@ -1,0 +1,30 @@
+{
+  "name": "SVG to React",
+  "id": "1308204019053941601",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html",
+  "enableProposedApi": false,
+  "documentAccess": "dynamic-page",
+  "editorType": [
+    "figma",
+    "dev"
+  ],
+  "permissions": [],
+  "capabilities": [
+    "inspect",
+    "vscode",
+    "codegen"
+  ],
+  "codegenLanguages": [
+    {
+      "label": "React",
+      "value": "react"
+    }
+  ],
+  "networkAccess": {
+    "allowedDomains": [
+      "none"
+    ]
+  }
+}
