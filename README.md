@@ -27,7 +27,7 @@ Plugin is opensource. You are welcome to contribute.
 
    ```shell
    git clone
-   cd 3dicons-figma
+   cd svg-to-code-figma
    ```
 
 1. Install the dependencies
@@ -46,13 +46,12 @@ Plugin is opensource. You are welcome to contribute.
 
 1. Go to `Menu > Plugins > Development > Import Plugin from manifest...`
 
-1. Choose `3dicons-plugin/manifest.json`
+1. Choose `svg-to-code-figma/manifest.json`
 
-1. Run the plugin by going to `Menu > Plugins > Development > 3dicons`
+1. Run the plugin by going to `Menu > Plugins > Development > SVG to Code`
 
 ## Support & Donate
 
-The goal of this project is to contribute to the open design community. Even though I do not intend to charge for these community resources, if 3dicons has ever been useful to you or your team, I would appreciate your support! It helps to maintain server costs and keep it grow. More details about the project [3dicons.co/about](https://3dicons.co/about/)
 
 [Github sponsor](https://github.com/sponsors/realvjy) | [Buy me a coffee](https://buymeacoffee.com/realvjy)
 
