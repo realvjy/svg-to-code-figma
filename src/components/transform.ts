@@ -1,5 +1,4 @@
 const isString = require("lodash.isstring");
-import { formatter, stringify } from "./svgutil";
 import { parse } from "svg-parser";
 const nativeCSS = require("css-to-object");
 const camelCase = require("lodash.camelcase");
@@ -145,16 +144,10 @@ export async function transformer(svg, config = {}) {
       // Remove unused IDs
     ],
   };
-  // const cleaned = new SVGO(svgoOptions);
-  // const finals =  cleaned.optimize(svg).data;
-  // const cleaned = await clean(svg, config);
-  // const parsed = parse(cleaned.data);
+
   const parsed = parse(svg);
   const transformed = transform(parsed);
   console.log(transformed, "transformed here");
-
-  // const morphed = stringify(transformed);
-  // const formatted = formatter(morphed, config);
 
   return "formatted";
 }

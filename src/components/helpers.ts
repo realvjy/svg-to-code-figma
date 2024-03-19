@@ -1,6 +1,5 @@
 // by @realvjy
-// 18 Nov, 2022
-import { transformer } from "./transform";
+// 5 March, 2024
 
 export const handleDownloadPNG = (imgRef, canvasRef) => {
   const canvasS = canvasRef.current;
@@ -153,7 +152,30 @@ export const convertToSVG = async (data) => {
   // const selectedNode = selection[0];
   const svg = await vectorShape.exportAsync({ format: "SVG_STRING" });
 
-  const transformed = await transformer(svg);
-  console.log(transformed, "neww parse");
   return svg;
 };
+
+export const convertToCamelCase = (inputString) => {
+  // Remove leading numbers, symbols, and hyphens
+if (!inputString) {
+  return "";
+};
+let cleanedString = inputString
+.replace(/^[^a-zA-Z_]+/, "")
+.replace(/[^a-zA-Z0-9_]+/g, "");
+
+// Split the string into words
+const words = cleanedString.split(/[\s-_]+/);
+
+// Capitalize the first letter of each word and join with underscores
+const camelCaseString = words
+.map((word, index) => {
+  return index === 0
+    ? word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+    : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+})
+.join("_");
+
+return camelCaseString;
+
+}

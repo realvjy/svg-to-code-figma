@@ -1,10 +1,8 @@
-import { optimize } from 'svgo';
-import { format } from 'prettier';
-const isPlainObject = require('lodash.isplainobject');
-const isString = require('lodash.isstring');
-const camelCase = require('lodash.camelcase');
-const nativeCSS = require('css-to-object');
-const template = require('lodash.template');
+const isPlainObject = require("lodash.isplainobject");
+const isString = require("lodash.isstring");
+const camelCase = require("lodash.camelcase");
+const nativeCSS = require("css-to-object");
+const template = require("lodash.template");
 
 /**
  * React component templates.
@@ -40,7 +38,7 @@ const TEMPLATES = {
  * @param {string="functional","class"} config.type Desired component type.
  * @return {string}
  */
-function reactify(svg, { type = 'functional', memo }) {
+function reactify(svg, { type = "functional", memo }) {
   const data = {
     parentComponent: memo ? `React.PureComponent` : `React.Component`,
     exportComponent: memo ? `React.memo(Icon)` : `Icon`,
@@ -54,39 +52,6 @@ function reactify(svg, { type = 'functional', memo }) {
 
   return component;
 }
-
-/**
- * Creates React component and formats with Prettier.
- * @param {string} svg Transformed SVG string.
- * @param {Object=} config Component type, SVGO and Prettier config.
- * @return {string}
- */
-export function formatter(svg, config) {
-  const component = reactify(svg, config);
-  const formatted = format(component, {
-    ...config,
-    parser: 'babel',
-  });
-
-  return formatted;
-}
-
-export const beautifyReactCode = (codeString) => {
-  try {
-    // Use Prettier to format the code
-    const formattedCode = format(codeString, {
-      parser: 'babel',
-      semi: false, // Optionally, to remove semicolons
-      singleQuote: true, // Optionally, to use single quotes
-      trailingComma: 'es5', // Optionally, to add trailing commas
-    });
-
-    return formattedCode;
-  } catch (error) {
-    console.error('Error formatting code:', error);
-    return codeString; // Return the original code if formatting fails
-  }
-};
 
 /**
  * Stringify style.
@@ -121,7 +86,9 @@ function stringifyAttributes(attributes = {}) {
     const isStyleAttribute = isPlainObject(attribute);
 
     if (isStyleAttribute) {
-      return accumulator + ` ${attributeName}={{ ${stringifyStyle(attribute)} }}`;
+      return (
+        accumulator + ` ${attributeName}={{ ${stringifyStyle(attribute)} }}`
+      );
     }
 
     return accumulator + ` ${attributeName}="${attribute}"`;

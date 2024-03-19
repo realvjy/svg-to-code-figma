@@ -1,6 +1,6 @@
 {
-  "name": "SVG to React",
-  "id": "1308204019053941601",
+  "name": "SVG to Code",
+  "id": "1348045528828166727",
   "api": "1.0.0",
   "main": "dist/code.js",
   "ui": "dist/ui.html",
